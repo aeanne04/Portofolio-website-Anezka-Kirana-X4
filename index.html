@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Our Portfolio</title>
+
+<style>
+
+/* ========= COLORS ========= */
+
+:root{
+
+--primary:#E8A0BF;
+--primary-dark:#D97DA4;
+
+--bg:#FFF8F3;
+
+--bg-card:
+rgba(255,245,240,.75);
+
+--text:#5E5050;
+
+--text-muted:#8A7777;
+
+--border:#F4DADA;
+
+--radius:22px;
+
+}
+
+/* ========= RESET ========= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:
+Segoe UI;
+
+background:var(--bg);
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* ========= FLOATING BLOBS ========= */
+
+.blob{
+
+position:fixed;
+
+border-radius:50%;
+
+filter:blur(70px);
+
+opacity:.4;
+
+z-index:-1;
+
+animation:
+float 10s infinite;
+
+}
+
+.blob1{
+
+width:250px;
+height:250px;
+
+background:#FFD7E3;
+
+left:-50px;
+top:50px;
+
+}
+
+.blob2{
+
+width:300px;
+height:300px;
+
+background:#FFEFD9;
+
+right:-50px;
+top:300px;
+
+animation-delay:2s;
+
+}
+
+@keyframes float{
+
+0%{
+transform:
+translateY(0);
+}
+
+50%{
+transform:
+translateY(-40px);
+}
+
+100%{
+transform:
+translateY(0);
+}
+
+}
+
+/* ========= NAVBAR ========= */
+
+nav{
+
+background:
+rgba(255,255,255,.6);
+
+backdrop-filter:
+blur(15px);
+
+padding:20px;
+
+position:sticky;
+
+top:0;
+
+z-index:1000;
+
+}
+
+.nav-inner{
+
+max-width:1100px;
+
+margin:auto;
+
+display:flex;
+
+justify-content:
+space-between;
+
+align-items:center;
+
+}
+
+.logo{
+
+font-size:24px;
+
+font-weight:700;
+
+color:
+var(--primary-dark);
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:25px;
+
+list-style:none;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+color:var(--text);
+
+transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+color:
+var(--primary-dark);
+
+}
+
+/* ========= HERO ========= */
+
+.hero{
+
+max-width:1100px;
+
+margin:auto;
+
+min-height:85vh;
+
+display:flex;
+
+align-items:center;
+
+gap:50px;
+
+padding:50px 20px;
+
+}
+
+.hero-text{
+
+flex:1;
+
+}
+
+.hero-text h1{
+
+font-size:55px;
+
+margin-bottom:15px;
+
+}
+
+.highlight{
+
+color:
+var(--primary-dark);
+
+}
+
+.subtitle{
+
+font-size:22px;
+
+color:
+var(--text-muted);
+
+margin-bottom:20px;
+
+}
+
+.hero-text p{
+
+color:
+var(--text-muted);
+
+line-height:1.8;
+
+}
+
+.btn{
+
+display:inline-block;
+
+margin-top:25px;
+
+padding:14px 28px;
+
+background:
+var(--primary);
+
+color:white;
+
+border-radius:15px;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+background:
+var(--primary-dark);
+
+transform:
+translateY(-4px);
+
+}
+
+.hero-avatar{
+
+width:280px;
+
+height:280px;
+
+border-radius:50%;
+
+background:
+linear-gradient(
+135deg,
+#FFD6E5,
+#FFF0D8
+);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:70px;
+
+box-shadow:
+0 0 40px rgba(0,0,0,.05);
+
+animation:
+float 5s infinite;
+
+}
+
+/* ========= SECTION ========= */
+
+section{
+
+max-width:1100px;
+
+margin:auto;
+
+padding:90px 20px;
+
+}
+
+section h2{
+
+text-align:center;
+
+margin-bottom:50px;
+
+font-size:35px;
+
+color:
+var(--primary-dark);
+
+}
+
+/* ========= ABOUT ========= */
+
+.team{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,
+minmax(320px,1fr));
+
+gap:30px;
+
+}
+
+.card{
+
+background:
+var(--bg-card);
+
+backdrop-filter:
+blur(12px);
+
+padding:30px;
+
+border-radius:
+30px;
+
+border:
+1px solid white;
+
+text-align:center;
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:
+translateY(-8px)
+rotate(1deg);
+
+}
+
+.profile{
+
+width:170px;
+height:170px;
+
+object-fit:cover;
+
+border-radius:50%;
+
+border:8px solid white;
+
+margin-bottom:20px;
+
+}
+
+.skills{
+
+display:flex;
+
+gap:10px;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+margin-top:15px;
+
+}
+
+.skill{
+
+background:white;
+
+padding:8px 15px;
+
+border-radius:20px;
+
+}
+
+/* ========= PROJECT ========= */
+
+.projects-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,
+minmax(300px,1fr));
+
+gap:25px;
+
+}
+
+.project-card{
+
+background:
+var(--bg-card);
+
+padding:25px;
+
+border-radius:25px;
+
+transition:.3s;
+
+}
+
+.project-card:hover{
+
+transform:
+translateY(-6px);
+
+}
+
+.tags{
+
+display:flex;
+
+gap:10px;
+
+flex-wrap:wrap;
+
+margin:15px 0;
+
+}
+
+.tag{
+
+background:white;
+
+padding:8px 14px;
+
+border-radius:20px;
+
+}
+
+/* ========= ACHIEVEMENT ========= */
+
+.timeline{
+
+max-width:800px;
+
+margin:auto;
+
+position:relative;
+
+}
+
+.timeline::before{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+width:4px;
+
+height:100%;
+
+background:
+var(--primary);
+
+}
+
+.item{
+
+width:50%;
+
+padding:20px;
+
+position:relative;
+
+}
+
+.left{
+left:0;
+}
+
+.right{
+left:50%;
+}
+
+.box{
+
+background:white;
+
+padding:20px;
+
+border-radius:20px;
+
+}
+
+/* ========= CONTACT ========= */
+
+.contact-links{
+
+display:flex;
+
+gap:25px;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+.contact-link{
+
+padding:18px;
+
+background:
+var(--bg-card);
+
+border-radius:20px;
+
+text-decoration:none;
+
+color:var(--text);
+
+}
+
+/* ========= REVEAL ========= */
+
+.hidden{
+
+opacity:0;
+
+transform:
+translateY(40px);
+
+transition:1s;
+
+}
+
+.show{
+
+opacity:1;
+
+transform:
+translateY(0);
+
+}
+
+/* ========= MOBILE ========= */
+
+@media(max-width:768px){
+
+.hero{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:40px;
+
+}
+
+.timeline::before{
+
+left:10px;
+
+}
+
+.item{
+
+width:100%;
+
+left:0;
+
+padding-left:40px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+<nav>
+
+<div class="nav-inner">
+
+<div class="logo">
+🌸 Our Portfolio
+</div>
+
+<ul class="nav-links">
+
+<li><a href="#about">
+About
+</a></li>
+
+<li><a href="#projects">
+Projects
+</a></li>
+
+<li><a href="#skills">
+Skills
+</a></li>
+
+<li><a href="#contact">
+Contact
+</a></li>
+
+</ul>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>
+
+Hi, We Are
+
+<span class="highlight">
+
+Student Developers
+
+</span>
+
+🌷
+
+</h1>
+
+<p class="subtitle">
+
+Aspiring Web Developers
+
+</p>
+
+<p>
+
+Welcome to our portfolio website.
+This website contains our information,
+achievements and projects.
+
+</p>
+
+<a href="#about"
+class="btn">
+
+Meet Us
+
+</a>
+
+</div>
+
+<div class="hero-avatar">
+
+👩🏻‍💻👩🏻‍💻
+
+</div>
+
+</section>
+
+
+<section
+id="about"
+class="hidden">
+
+<h2>
+
+About Us
+
+</h2>
+
+<div class="team">
+
+<div class="card">
+
+<img src="foto1.jpg"
+class="profile">
+
+<h3>PERSON 1</h3>
+
+<p>
+
+Write your description here
+
+</p>
+
+<div class="skills">
+
+<div class="skill">
+HTML
+</div>
+
+<div class="skill">
+CSS
+</div>
+
+<div class="skill">
+GitHub
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="foto2.jpg"
+class="profile">
+
+<h3>PERSON 2</h3>
+
+<p>
+
+Write your description here
+
+</p>
+
+<div class="skills">
+
+<div class="skill">
+HTML
+</div>
+
+<div class="skill">
+CSS
+</div>
+
+<div class="skill">
+Design
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section
+id="projects"
+class="hidden">
+
+<h2>
+
+Achievements
+
+</h2>
+
+<div class="timeline">
+
+<div class="item left">
+
+<div class="box">
+
+🏆 Person 1
+
+<ul>
+
+<li>Achievement 1</li>
+
+<li>Achievement 2</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="item right">
+
+<div class="box">
+
+🏆 Person 2
+
+<ul>
+
+<li>Achievement 1</li>
+
+<li>Achievement 2</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section
+id="contact"
+class="hidden">
+
+<h2>
+
+Contact
+
+</h2>
+
+<div class="contact-links">
+
+<a href=""
+class="contact-link">
+
+💻 GitHub Person 1
+
+</a>
+
+<a href=""
+class="contact-link">
+
+💻 GitHub Person 2
+
+</a>
+
+</div>
+
+</section>
+
+
+<script>
+
+const observer=
+new IntersectionObserver(
+
+entries=>{
+
+entries.forEach(
+
+entry=>{
+
+if(
+entry.isIntersecting
+){
+
+entry.target
+.classList.add(
+"show"
+);
+
+}
+
+}
+
+);
+
+}
+
+);
+
+document
+.querySelectorAll(
+".hidden"
+)
+
+.forEach(
+
+el=>observer.observe(el)
+
+);
+
+</script>
+
+</body>
+
+</html>
